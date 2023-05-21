@@ -8,9 +8,10 @@ import decorator.Arac;
 import decorator.EkMenzilDecorator;
 import factory.Kullanici;
 import factory.KullaniciFactory;
-import factory.Musteri;
 import iterator.AracListesi;
 import iterator.Otomobil;
+import observer.KiralamaServisiDemo;
+import observer.OMusteri;
 import proxy.KiralamaServisi;
 import proxy.ProxyKiralama;
 import strategy.GunlukKiralama;
@@ -104,6 +105,23 @@ public class Main {
         ArabaVisitor rapor = new RaporVisitor();
 
         musterii.raporOlustur(rapor,araba3);
+
+
+        //Visitor Tasarim Desenini Kullandigimiz Kisim
+
+        KiralamaServisiDemo aracKiralaDemo= new KiralamaServisiDemo();
+
+        OMusteri musteri2 = new OMusteri("Aziz");
+        OMusteri musteri3 = new OMusteri("Ali");
+
+        aracKiralaDemo.observerKayit(musteri2);
+        aracKiralaDemo.observerKayit(musteri3);
+
+        aracKiralaDemo.setDurum("Araç kiralandı");
+
+        aracKiralaDemo.observerSil(musteri2);
+
+        aracKiralaDemo.setDurum("Araç iade edildi");
 
     }
 }
