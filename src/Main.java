@@ -4,6 +4,8 @@ import bridge.SporAraba;
 import bridge.SuvAraba;
 import builder.Araba;
 import builder.ArabaBuilder;
+import decorator.Arac;
+import decorator.EkMenzilDecorator;
 import factory.Kullanici;
 import factory.KullaniciFactory;
 import proxy.KiralamaServisi;
@@ -52,6 +54,18 @@ public class Main {
 
         servisKira.kiralamaIslemi("Ahmet");  //Sistemdeki tek arabayı 'Mehmet' kiraladığı için 'Ahmet' araba kiralayamaayacak
 
+
+        //Decorator Tasarim Desenini Kullandigimiz Kisim
+
+        Arac araba2 = new decorator.Araba("TOGG",1750);
+
+        Arac decoratedAraba = new EkMenzilDecorator(araba2 );
+
+        System.out.println("Açıklama: "+ decoratedAraba.getAciklama());
+        System.out.println("Kiralama Bedeli: " + decoratedAraba.getKiralamaUcreti() + " TL");
+
     }
+
+
 
 }
