@@ -1,3 +1,7 @@
+import bridge.Islemler;
+import bridge.KiralanacakAraba;
+import bridge.SporAraba;
+import bridge.SuvAraba;
 import builder.Araba;
 import builder.ArabaBuilder;
 import factory.Kullanici;
@@ -25,6 +29,19 @@ public class Main {
 
         Kullanici yonetici = KullaniciFactory.yeniKullanici("Yönetici","Mehmet Akif Küçükkaya","akif@gmail.com","66666666666");
             yonetici.kullaniciBilgi();
+
+
+        //Bridge Tasarim Desenini Kullandigimiz Kisim
+
+        KiralanacakAraba sporAraba = new SporAraba("34 BA 2626");
+        Islemler kiraIslem = new Islemler(sporAraba);
+        kiraIslem.kirala();
+
+        KiralanacakAraba suvAraba = new SuvAraba("25 AE 123");
+        Islemler kiraIslem2 = new Islemler(suvAraba);
+        kiraIslem2.kirala();
+
+
     }
 
 }
