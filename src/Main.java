@@ -26,6 +26,7 @@ import visitor.RaporVisitor;
 public class Main {
     public static void main(String[] args) {
 
+        System.out.println("****************************************************");
         // Builder Tasarim Deseni Kullandigimiz Kisim
 
         Araba araba1 = new ArabaBuilder()
@@ -37,7 +38,7 @@ public class Main {
 
         System.out.println( araba1 );
 
-
+        System.out.println("****************************************************");
         //Factory Tasarim Desenini Kullandigimiz Kisim
 
             Kullanici musteri = KullaniciFactory.yeniKullanici("Müşteri", "Ali ", "ali@gmail.com","55555555555");
@@ -46,6 +47,7 @@ public class Main {
         Kullanici yonetici = KullaniciFactory.yeniKullanici("Yönetici","Mehmet Akif Küçükkaya","akif@gmail.com","66666666666");
             yonetici.kullaniciBilgi();
 
+        System.out.println("****************************************************");
 
         //Bridge Tasarim Desenini Kullandigimiz Kisim
 
@@ -57,6 +59,7 @@ public class Main {
         Islemler kiraIslem2 = new Islemler(suvAraba);
         kiraIslem2.kirala();
 
+        System.out.println("****************************************************");
 
         //Proxy Tasarim Desenini Kullandigimiz Kisim
 
@@ -66,6 +69,7 @@ public class Main {
 
         servisKira.kiralamaIslemi("Ahmet");  //Sistemdeki tek arabayı 'Mehmet' kiraladığı için 'Ahmet' araba kiralayamaayacak
 
+        System.out.println("****************************************************");
 
         //Decorator Tasarim Desenini Kullandigimiz Kisim
 
@@ -84,6 +88,7 @@ public class Main {
         araclar.aracEkle(new Otomobil("Mercedes" , 1000));
         araclar.aracEkle(new Otomobil("Toyota" , 1100));
 
+        System.out.println("****************************************************");
 
         //Strategy Tasarim Desenini Kullandigimiz Kisim
 
@@ -97,7 +102,7 @@ public class Main {
         double gunlukUcret = arabaKirala.kiralamaUcreti(2);
         System.out.println("Toplam Ucret:  "+ gunlukUcret);
 
-
+        System.out.println("****************************************************");
         //Visitor Tasarim Desenini Kullandigimiz Kisim
 
         KiralikAraba araba3 = new KiralikAraba("Toyota");
@@ -106,8 +111,9 @@ public class Main {
 
         musterii.raporOlustur(rapor,araba3);
 
+        System.out.println("****************************************************");
 
-        //Visitor Tasarim Desenini Kullandigimiz Kisim
+        //Observer Tasarim Desenini Kullandigimiz Kisim
 
         KiralamaServisiDemo aracKiralaDemo= new KiralamaServisiDemo();
 
@@ -122,6 +128,8 @@ public class Main {
         aracKiralaDemo.observerSil(musteri2);
 
         aracKiralaDemo.setDurum("Araç iade edildi");
+
+        System.out.println("****************************************************");
 
     }
 }
