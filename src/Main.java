@@ -8,6 +8,9 @@ import decorator.Arac;
 import decorator.EkMenzilDecorator;
 import factory.Kullanici;
 import factory.KullaniciFactory;
+import iterator.AracIT;
+import iterator.AracListesi;
+import iterator.Otomobil;
 import proxy.KiralamaServisi;
 import proxy.ProxyKiralama;
 
@@ -63,6 +66,16 @@ public class Main {
 
         System.out.println("Açıklama: "+ decoratedAraba.getAciklama());
         System.out.println("Kiralama Bedeli: " + decoratedAraba.getKiralamaUcreti() + " TL");
+
+        //Itterator Tasarim Desenini Kullandigimiz Kisim
+
+        AracListesi araclar = new AracListesi();
+
+        araclar.aracEkle(new Otomobil("BMW" , 1200));
+        araclar.aracEkle(new Otomobil("Mercedes" , 1000));
+        araclar.aracEkle(new Otomobil("Toyota" , 1100));
+
+
 
     }
 
