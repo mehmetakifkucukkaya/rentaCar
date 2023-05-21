@@ -8,11 +8,13 @@ import decorator.Arac;
 import decorator.EkMenzilDecorator;
 import factory.Kullanici;
 import factory.KullaniciFactory;
-import iterator.AracIT;
 import iterator.AracListesi;
 import iterator.Otomobil;
 import proxy.KiralamaServisi;
 import proxy.ProxyKiralama;
+import strategy.GunlukKiralama;
+import strategy.Kirala;
+import strategy.SaatlikKiralama;
 
 public class Main {
     public static void main(String[] args) {
@@ -76,6 +78,17 @@ public class Main {
         araclar.aracEkle(new Otomobil("Toyota" , 1100));
 
 
+        //Strategy Tasarim Desenini Kullandigimiz Kisim
+
+        Kirala arabaKirala = new Kirala();
+
+        arabaKirala.setKiralamaSecenegi(new SaatlikKiralama());
+        double saatlikUcret = arabaKirala.kiralamaUcreti(6);
+        System.out.println("Toplam Ucret: "+ saatlikUcret);
+
+        arabaKirala.setKiralamaSecenegi(new GunlukKiralama());
+        double gunlukUcret = arabaKirala.kiralamaUcreti(2);
+        System.out.println("Toplam Ucret:  "+ gunlukUcret);
 
     }
 
