@@ -8,6 +8,7 @@ import decorator.Arac;
 import decorator.EkMenzilDecorator;
 import factory.Kullanici;
 import factory.KullaniciFactory;
+import factory.Musteri;
 import iterator.AracListesi;
 import iterator.Otomobil;
 import proxy.KiralamaServisi;
@@ -15,6 +16,11 @@ import proxy.ProxyKiralama;
 import strategy.GunlukKiralama;
 import strategy.Kirala;
 import strategy.SaatlikKiralama;
+import visitor.ArabaVisitor;
+import visitor.KiralikAraba;
+import visitor.Musterii;
+import visitor.RaporVisitor;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -90,8 +96,14 @@ public class Main {
         double gunlukUcret = arabaKirala.kiralamaUcreti(2);
         System.out.println("Toplam Ucret:  "+ gunlukUcret);
 
+
+        //Visitor Tasarim Desenini Kullandigimiz Kisim
+
+        KiralikAraba araba3 = new KiralikAraba("Toyota");
+        Musterii musterii = new Musterii("Akif");
+        ArabaVisitor rapor = new RaporVisitor();
+
+        musterii.raporOlustur(rapor,araba3);
+
     }
-
-
-
 }
