@@ -6,6 +6,8 @@ import builder.Araba;
 import builder.ArabaBuilder;
 import factory.Kullanici;
 import factory.KullaniciFactory;
+import proxy.KiralamaServisi;
+import proxy.ProxyKiralama;
 
 public class Main {
     public static void main(String[] args) {
@@ -41,6 +43,14 @@ public class Main {
         Islemler kiraIslem2 = new Islemler(suvAraba);
         kiraIslem2.kirala();
 
+
+        //Proxy Tasarim Desenini Kullandigimiz Kisim
+
+        KiralamaServisi servisKira = new ProxyKiralama();
+
+        servisKira.kiralamaIslemi("Mehmet");
+
+        servisKira.kiralamaIslemi("Ahmet");  //Sistemdeki tek arabayı 'Mehmet' kiraladığı için 'Ahmet' araba kiralayamaayacak
 
     }
 
